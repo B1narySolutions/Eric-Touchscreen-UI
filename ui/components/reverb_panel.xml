@@ -1,0 +1,16 @@
+﻿<component>
+    <view extends="lv_obj" width="992" height="280" scrollable="false">
+        <style name="surface" />
+        <parameter_dial name="reverb_dial_0" x="20" y="48" width="310" title="Mix" subject="reverb_p0" format="%d%%" minimum="0" maximum="100" step="1" negative_step="-1" accent="#reverb" control_id="20" />
+        <parameter_dial name="reverb_dial_1" x="342" y="48" width="310" title="Decay (0.1 s)" subject="reverb_p1" format="%d" minimum="1" maximum="100" step="1" negative_step="-1" accent="#reverb" control_id="21" />
+        <parameter_dial name="reverb_dial_2" x="664" y="48" width="310" title="Damping" subject="reverb_p2" format="%d%%" minimum="0" maximum="100" step="1" negative_step="-1" accent="#reverb" control_id="22" />
+        <lv_label text="REVERB" x="20" y="16" style_text_font="font_14" style_text_color="#reverb" />
+        <lv_label text="ACTIVE" align="top_right" x="-20" y="16" style_text_font="font_14" style_text_color="#muted">
+            <bind_flag_if_not_eq subject="reverb_enabled" ref_value="1" flag="hidden" />
+        </lv_label>
+        <lv_label text="BYPASSED" align="top_right" x="-20" y="16" style_text_font="font_14" style_text_color="#muted">
+            <bind_flag_if_not_eq subject="reverb_enabled" ref_value="0" flag="hidden" />
+        </lv_label>
+    </view>
+</component>
+

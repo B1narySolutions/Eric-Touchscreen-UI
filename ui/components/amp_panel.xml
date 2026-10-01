@@ -1,0 +1,12 @@
+﻿<component>
+    <view extends="lv_obj" width="992" height="280" scrollable="false">
+        <style name="surface" />
+        <parameter_dial name="amp_dial_0" x="20" y="48" width="180" title="Gain" subject="amp_p0" format="%d%%" minimum="0" maximum="100" step="1" negative_step="-1" accent="#amp" control_id="9" />
+        <parameter_dial name="amp_dial_1" x="212" y="48" width="180" title="Bass" subject="amp_p1" format="%d%%" minimum="0" maximum="100" step="1" negative_step="-1" accent="#amp" control_id="10" />
+        <parameter_dial name="amp_dial_2" x="404" y="48" width="180" title="Middle" subject="amp_p2" format="%d%%" minimum="0" maximum="100" step="1" negative_step="-1" accent="#amp" control_id="11" />
+        <parameter_dial name="amp_dial_3" x="596" y="48" width="180" title="Treble" subject="amp_p3" format="%d%%" minimum="0" maximum="100" step="1" negative_step="-1" accent="#amp" control_id="12" />
+        <parameter_dial name="amp_dial_4" x="788" y="48" width="180" title="Level" subject="amp_p4" format="%d%%" minimum="0" maximum="100" step="1" negative_step="-1" accent="#amp" control_id="13" />
+        <lv_label text="AMP TONE" x="20" y="16" style_text_font="font_14" style_text_color="#amp" />
+    </view>
+</component>
+

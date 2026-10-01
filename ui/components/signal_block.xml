@@ -1,0 +1,26 @@
+<component>
+    <api>
+        <prop name="title" type="string" default="AMP" />
+        <prop name="block_id" type="int" default="3" />
+        <prop name="enabled_subject" type="subject" default="amp_enabled" />
+        <prop name="accent" type="color" default="#amber" />
+    </api>
+    <view extends="lv_obj" width="113" height="128" scrollable="false" style_bg_opa="0%" style_border_width="0" style_pad_all="0" style_radius="0" style_shadow_width="0">
+        <amp_button text="$title" x="0" y="0" width="113" height="68" press_lock="true" gesture_bubble="false" style_bg_color="#panel" style_text_font="font_16" style_text_color="$accent" style_bg_color-checked="#panel" style_text_color-checked="$accent" style_border_color-checked="$accent" style_border_width-checked="2">
+            <bind_state_if_eq subject="selected_block" state="checked" ref_value="$block_id" />
+            <subject_set_int_event subject="selected_block" value="$block_id" trigger="clicked" />
+            <event_cb callback="amp_chain_drag_event" trigger="all" />
+        </amp_button>
+        <amp_button text="" x="0" y="74" width="113" height="54" style_bg_color="#background" style_bg_color-checked="0x2A3135">
+            <bind_state_if_eq subject="$enabled_subject" state="checked" ref_value="1" />
+            <subject_toggle_event subject="$enabled_subject" trigger="clicked" />
+            <subject_set_int_event subject="edited" value="1" trigger="clicked" />
+            <lv_label text="ON" x="0" y="0" style_text_font="font_16" style_text_color="$accent" align="center">
+                <bind_flag_if_not_eq subject="$enabled_subject" ref_value="1" flag="hidden" />
+            </lv_label>
+            <lv_label text="BYPASS" x="0" y="0" style_text_font="font_16" style_text_color="#muted" align="center">
+                <bind_flag_if_not_eq subject="$enabled_subject" ref_value="0" flag="hidden" />
+            </lv_label>
+        </amp_button>
+    </view>
+</component>

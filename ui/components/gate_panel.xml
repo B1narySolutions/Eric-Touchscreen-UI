@@ -1,0 +1,15 @@
+﻿<component>
+    <view extends="lv_obj" width="992" height="280" scrollable="false">
+        <style name="surface" />
+        <parameter_dial name="gate_dial_0" x="20" y="48" width="470" title="Threshold" subject="gate_p0" format="%d dB" minimum="-80" maximum="0" step="1" negative_step="-1" accent="#gate" control_id="1" />
+        <parameter_dial name="gate_dial_1" x="502" y="48" width="470" title="Release" subject="gate_p1" format="%d ms" minimum="10" maximum="500" step="10" negative_step="-10" accent="#gate" control_id="2" />
+        <lv_label text="GATE" x="20" y="16" style_text_font="font_14" style_text_color="#gate" />
+        <lv_label text="ACTIVE" align="top_right" x="-20" y="16" style_text_font="font_14" style_text_color="#muted">
+            <bind_flag_if_not_eq subject="gate_enabled" ref_value="1" flag="hidden" />
+        </lv_label>
+        <lv_label text="BYPASSED" align="top_right" x="-20" y="16" style_text_font="font_14" style_text_color="#muted">
+            <bind_flag_if_not_eq subject="gate_enabled" ref_value="0" flag="hidden" />
+        </lv_label>
+    </view>
+</component>
+

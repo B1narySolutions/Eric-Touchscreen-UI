@@ -1,0 +1,16 @@
+﻿<component>
+    <view extends="lv_obj" width="992" height="280" scrollable="false">
+        <style name="surface" />
+        <parameter_dial name="chorus_dial_0" x="20" y="48" width="310" title="Mix" subject="chorus_p0" format="%d%%" minimum="0" maximum="100" step="1" negative_step="-1" accent="#chorus" control_id="14" />
+        <parameter_dial name="chorus_dial_1" x="342" y="48" width="310" title="Rate (0.1 Hz)" subject="chorus_p1" format="%d" minimum="1" maximum="100" step="1" negative_step="-1" accent="#chorus" control_id="15" />
+        <parameter_dial name="chorus_dial_2" x="664" y="48" width="310" title="Depth" subject="chorus_p2" format="%d%%" minimum="0" maximum="100" step="1" negative_step="-1" accent="#chorus" control_id="16" />
+        <lv_label text="CHORUS" x="20" y="16" style_text_font="font_14" style_text_color="#chorus" />
+        <lv_label text="ACTIVE" align="top_right" x="-20" y="16" style_text_font="font_14" style_text_color="#muted">
+            <bind_flag_if_not_eq subject="chorus_enabled" ref_value="1" flag="hidden" />
+        </lv_label>
+        <lv_label text="BYPASSED" align="top_right" x="-20" y="16" style_text_font="font_14" style_text_color="#muted">
+            <bind_flag_if_not_eq subject="chorus_enabled" ref_value="0" flag="hidden" />
+        </lv_label>
+    </view>
+</component>
+

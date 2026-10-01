@@ -1,0 +1,30 @@
+<component>
+    <view extends="lv_obj" width="992" height="280" scrollable="false">
+        <style name="surface" />
+        <lv_label text="CABINET / IMPULSE RESPONSE" x="20" y="16" style_text_font="font_14" style_text_color="#cabinet" />
+        <lv_label text="Select the cabinet IR EQ curve applied at the end of the signal chain." x="20" y="48" style_text_font="font_16" style_text_color="#muted" />
+
+        <amp_button name="cabinet_ir_0" text="1x12 OPEN BACK" x="20" y="92" width="300" height="112" style_bg_color-checked="#selected_bg" style_border_color-checked="#cabinet" style_text_color-checked="#cabinet">
+            <bind_state_if_eq subject="cabinet_ir" ref_value="0" state="checked" />
+            <subject_set_int_event subject="cabinet_ir" value="0" trigger="clicked" />
+            <subject_set_int_event subject="edited" value="1" trigger="clicked" />
+        </amp_button>
+        <amp_button name="cabinet_ir_1" text="2x12 ALNICO BLUE" x="346" y="92" width="300" height="112" style_bg_color-checked="#selected_bg" style_border_color-checked="#cabinet" style_text_color-checked="#cabinet">
+            <bind_state_if_eq subject="cabinet_ir" ref_value="1" state="checked" />
+            <subject_set_int_event subject="cabinet_ir" value="1" trigger="clicked" />
+            <subject_set_int_event subject="edited" value="1" trigger="clicked" />
+        </amp_button>
+        <amp_button name="cabinet_ir_2" text="4x12 VINTAGE" x="672" y="92" width="300" height="112" style_bg_color-checked="#selected_bg" style_border_color-checked="#cabinet" style_text_color-checked="#cabinet">
+            <bind_state_if_eq subject="cabinet_ir" ref_value="2" state="checked" />
+            <subject_set_int_event subject="cabinet_ir" value="2" trigger="clicked" />
+            <subject_set_int_event subject="edited" value="1" trigger="clicked" />
+        </amp_button>
+
+        <lv_label text="CABINET ACTIVE" x="20" y="238" style_text_font="font_14" style_text_color="#cabinet">
+            <bind_flag_if_not_eq subject="cabinet_enabled" ref_value="1" flag="hidden" />
+        </lv_label>
+        <lv_label text="CABINET BYPASSED" x="20" y="238" style_text_font="font_14" style_text_color="#muted">
+            <bind_flag_if_not_eq subject="cabinet_enabled" ref_value="0" flag="hidden" />
+        </lv_label>
+    </view>
+</component>

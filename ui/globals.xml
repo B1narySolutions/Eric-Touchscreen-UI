@@ -1,0 +1,77 @@
+<globals>
+    <consts>
+        <color name="background" value="0x111416" />
+        <color name="panel" value="0x1B2023" />
+        <color name="edge" value="0x343C40" />
+        <color name="ink" value="0xF2EEE6" />
+        <color name="muted" value="0xA0AAAE" />
+        <color name="amber" value="0xE9B76E" />
+        <color name="button_bg" value="0x282F33" />
+        <color name="selected_bg" value="0x46392A" />
+        <color name="gate" value="0x82B8AA" />
+        <color name="comp" value="0xDFBE73" />
+        <color name="drive" value="0xE7956B" />
+        <color name="amp" value="0xE9B76E" />
+        <color name="chorus" value="0x86BCA9" />
+        <color name="delay" value="0x83AFDC" />
+        <color name="reverb" value="0xB49DD5" />
+        <color name="cabinet" value="0xD39A72" />
+    </consts>
+    <subjects>
+        <int name="selected_block" value="3" />
+        <int name="preset_number" value="1" />
+        <int name="voice" value="0" />
+        <int name="master" value="65" />
+        <int name="aux" value="35" />
+        <int name="muted_output" value="0" />
+        <int name="headphones" value="0" />
+        <int name="dialog" value="0" />
+        <int name="edited" value="0" />
+        <int name="gate_enabled" value="0" />
+        <int name="gate_p0" value="-55" />
+        <int name="gate_p1" value="120" />
+        <int name="comp_enabled" value="0" />
+        <int name="comp_p0" value="65" />
+        <int name="comp_p1" value="20" />
+        <int name="comp_p2" value="40" />
+        <int name="drive_enabled" value="0" />
+        <int name="drive_p0" value="55" />
+        <int name="drive_p1" value="35" />
+        <int name="drive_p2" value="55" />
+        <int name="amp_enabled" value="1" />
+        <int name="amp_p0" value="32" />
+        <int name="amp_p1" value="50" />
+        <int name="amp_p2" value="45" />
+        <int name="amp_p3" value="62" />
+        <int name="amp_p4" value="65" />
+        <int name="chorus_enabled" value="0" />
+        <int name="chorus_p0" value="25" />
+        <int name="chorus_p1" value="12" />
+        <int name="chorus_p2" value="40" />
+        <int name="delay_enabled" value="0" />
+        <int name="delay_p0" value="22" />
+        <int name="delay_p1" value="380" />
+        <int name="delay_p2" value="30" />
+        <int name="reverb_enabled" value="1" />
+        <int name="reverb_p0" value="28" />
+        <int name="reverb_p1" value="24" />
+        <int name="reverb_p2" value="45" />
+        <int name="cabinet_enabled" value="1" />
+        <int name="cabinet_ir" value="0" />
+        <int name="sidebar_open" value="0" />
+        <int name="active_adjustment" value="0" />
+    </subjects>
+    <fonts>
+        <tiny_ttf name="font_14" src_path="fonts/Montserrat_Medium.ttf" size="14" as_file="true" />
+        <tiny_ttf name="font_16" src_path="fonts/Montserrat_Medium.ttf" size="16" as_file="true" />
+        <tiny_ttf name="font_24" src_path="fonts/Montserrat_Medium.ttf" size="24" as_file="true" />
+        <tiny_ttf name="font_28" src_path="fonts/Montserrat_Medium.ttf" size="28" as_file="true" />
+        <tiny_ttf name="font_20" src_path="fonts/Montserrat_Medium.ttf" size="20" as_file="true" />
+        <tiny_ttf name="font_48" src_path="fonts/Montserrat_Medium.ttf" size="48" as_file="true" />
+    </fonts>
+    <styles>
+        <style name="surface" bg_color="#panel" bg_opa="100%" border_width="0" pad_all="0" radius="16" text_color="#ink" text_font="font_16" />
+        <style name="button_base" bg_color="#button_bg" bg_opa="100%" border_width="1" border_color="#edge" pad_all="0" radius="10" text_color="#ink" text_font="font_16" shadow_width="0" />
+        <style name="button_pressed" bg_color="0x434B50" />
+    </styles>
+</globals>

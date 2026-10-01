@@ -1,0 +1,28 @@
+# Generated desktop and LVGL Pro builds
+/build/
+/ui/build/
+/ui/preview-build/
+/ui/preview-bin/
+/ui/.cache.json
+.cache/
+
+# Local screenshots and research scratch files
+/output/
+/tmp/
+
+# Generated ESP-IDF files; dependencies are restored from dependencies.lock
+/esp32/build/
+/esp32/managed_components/
+/esp32/sdkconfig
+/esp32/sdkconfig.old
+
+# Old environment backups
+/esp32/build.docker-backup/
+/esp32/managed_components.docker-backup/
+/esp32/dependencies.docker-backup.lock
+
+# Common editor and OS temporary files
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db

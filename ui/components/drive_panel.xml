@@ -1,0 +1,16 @@
+﻿<component>
+    <view extends="lv_obj" width="992" height="280" scrollable="false">
+        <style name="surface" />
+        <parameter_dial name="drive_dial_0" x="20" y="48" width="310" title="Level" subject="drive_p0" format="%d%%" minimum="0" maximum="100" step="1" negative_step="-1" accent="#drive" control_id="6" />
+        <parameter_dial name="drive_dial_1" x="342" y="48" width="310" title="Gain" subject="drive_p1" format="%d%%" minimum="0" maximum="100" step="1" negative_step="-1" accent="#drive" control_id="7" />
+        <parameter_dial name="drive_dial_2" x="664" y="48" width="310" title="Tone" subject="drive_p2" format="%d%%" minimum="0" maximum="100" step="1" negative_step="-1" accent="#drive" control_id="8" />
+        <lv_label text="DRIVE" x="20" y="16" style_text_font="font_14" style_text_color="#drive" />
+        <lv_label text="ACTIVE" align="top_right" x="-20" y="16" style_text_font="font_14" style_text_color="#muted">
+            <bind_flag_if_not_eq subject="drive_enabled" ref_value="1" flag="hidden" />
+        </lv_label>
+        <lv_label text="BYPASSED" align="top_right" x="-20" y="16" style_text_font="font_14" style_text_color="#muted">
+            <bind_flag_if_not_eq subject="drive_enabled" ref_value="0" flag="hidden" />
+        </lv_label>
+    </view>
+</component>
+

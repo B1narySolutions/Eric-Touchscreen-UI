@@ -1,0 +1,21 @@
+list(
+  APPEND
+  LV_EDITOR_PROJECT_SOURCES
+  ${CMAKE_CURRENT_LIST_DIR}/amp_editor_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/amp_editor.c
+  ${CMAKE_CURRENT_LIST_DIR}/components/adjustment_popup_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/components/amp_button_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/components/amp_drawer_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/components/amp_panel_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/components/cabinet_panel_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/components/amplifier_selector_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/components/chorus_panel_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/components/comp_panel_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/components/delay_panel_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/components/drive_panel_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/components/gate_panel_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/components/parameter_dial_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/components/preview_dialogs_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/components/reverb_panel_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/components/signal_block_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/screens/home_gen.c)

@@ -1,0 +1,107 @@
+<screen>
+    <view extends="lv_obj" width="1024" height="600" scrollable="false" style_bg_color="#background" style_bg_opa="100%" style_pad_all="0" style_border_width="0" style_radius="0" style_text_font="font_16" style_text_color="#ink">
+        <lv_label name="preset_name" x="24" y="25" bind_text="preset_number" bind_text-fmt="Preset %d" style_text_font="font_24" />
+        <lv_label text="PREVIEW" x="25" y="56" style_text_font="font_14" style_text_color="#muted">
+            <bind_flag_if_not_eq subject="edited" ref_value="0" flag="hidden" />
+        </lv_label>
+        <lv_label text="EDITED" x="25" y="56" style_text_font="font_14" style_text_color="#amber">
+            <bind_flag_if_not_eq subject="edited" ref_value="1" flag="hidden" />
+        </lv_label>
+        <amp_button text="Save" x="660" y="20" width="98" height="56" style_bg_color="#selected_bg">
+            <subject_set_int_event subject="dialog" value="3" trigger="clicked" />
+        </amp_button>
+        <lv_label text="UI PROTOTYPE" x="804" y="26" style_text_font="font_14" style_text_color="#muted" />
+        <lv_label text="BAT -- / OFFLINE" x="804" y="50" style_text_font="font_14" style_text_color="#muted" />
+        <lv_obj name="effect_chain" x="16" y="94" width="984" height="128" scrollable="false" clickable="false" style_bg_opa="0%" style_border_width="0" style_pad_all="0" style_radius="0">
+            <lv_obj name="movable_effects" x="0" y="0" width="851" height="128" scrollable="false" clickable="false" style_bg_opa="0%" style_border_width="0" style_pad_all="0" style_radius="0">
+                <subject_set_int_event subject="edited" value="1" trigger="value_changed" />
+                <event_cb callback="amp_chain_lifecycle_event" trigger="all" />
+                <signal_block name="gate_block" x="0" y="0" title="GATE" block_id="0" enabled_subject="gate_enabled" accent="#gate" />
+                <signal_block name="comp_block" x="123" y="0" title="COMP" block_id="1" enabled_subject="comp_enabled" accent="#comp" />
+                <signal_block name="drive_block" x="246" y="0" title="DRIVE" block_id="2" enabled_subject="drive_enabled" accent="#drive" />
+                <signal_block name="amp_block" x="369" y="0" title="AMP" block_id="3" enabled_subject="amp_enabled" accent="#amp" />
+                <signal_block name="chorus_block" x="492" y="0" title="CHORUS" block_id="4" enabled_subject="chorus_enabled" accent="#chorus" />
+                <signal_block name="delay_block" x="615" y="0" title="DELAY" block_id="5" enabled_subject="delay_enabled" accent="#delay" />
+                <signal_block name="reverb_block" x="738" y="0" title="REVERB" block_id="6" enabled_subject="reverb_enabled" accent="#reverb" />
+            </lv_obj>
+            <signal_block name="cabinet_block" x="861" y="0" title="CAB" block_id="7" enabled_subject="cabinet_enabled" accent="#cabinet" />
+        </lv_obj>
+        <gate_panel name="gate_editor" x="16" y="236">
+            <bind_flag_if_not_eq subject="selected_block" ref_value="0" flag="hidden" />
+        </gate_panel>
+        <comp_panel name="comp_editor" x="16" y="236">
+            <bind_flag_if_not_eq subject="selected_block" ref_value="1" flag="hidden" />
+        </comp_panel>
+        <drive_panel name="drive_editor" x="16" y="236">
+            <bind_flag_if_not_eq subject="selected_block" ref_value="2" flag="hidden" />
+        </drive_panel>
+        <amp_panel name="amp_editor" x="16" y="236">
+            <bind_flag_if_not_eq subject="selected_block" ref_value="3" flag="hidden" />
+        </amp_panel>
+        <chorus_panel name="chorus_editor" x="16" y="236">
+            <bind_flag_if_not_eq subject="selected_block" ref_value="4" flag="hidden" />
+        </chorus_panel>
+        <delay_panel name="delay_editor" x="16" y="236">
+            <bind_flag_if_not_eq subject="selected_block" ref_value="5" flag="hidden" />
+        </delay_panel>
+        <reverb_panel name="reverb_editor" x="16" y="236">
+            <bind_flag_if_not_eq subject="selected_block" ref_value="6" flag="hidden" />
+        </reverb_panel>
+        <cabinet_panel name="cabinet_editor" x="16" y="236">
+            <bind_flag_if_not_eq subject="selected_block" ref_value="7" flag="hidden" />
+        </cabinet_panel>
+        <amp_button text="Presets" x="24" y="534" width="142" height="54">
+            <subject_set_int_event subject="dialog" value="1" trigger="clicked" />
+        </amp_button>
+        <amp_button text="Settings" x="178" y="534" width="142" height="54">
+            <subject_set_int_event subject="dialog" value="2" trigger="clicked" />
+        </amp_button>
+        <lv_label text="MASTER" x="372" y="552" style_text_font="font_14" style_text_color="#muted" />
+        <lv_slider name="master_volume" x="470" y="556" width="290" height="10" bind_value="master" min_value="0" max_value="100" ext_click_area="22" style_bg_color="#edge" style_bg_color-indicator="#amber" style_bg_color-knob="#ink">
+            <subject_set_int_event subject="edited" value="1" trigger="value_changed" />
+        </lv_slider>
+        <lv_label x="792" y="550" bind_text="master" bind_text-fmt="%d%%" style_text_font="font_24" />
+        <amp_button text="" x="880" y="534" width="120" height="54" style_border_color-checked="0xEA8C83">
+            <subject_toggle_event subject="muted_output" trigger="clicked" />
+            <bind_state_if_eq subject="muted_output" ref_value="1" state="checked" />
+            <lv_label text="MUTE" x="0" y="0" style_text_font="font_16" style_text_color="#ink" align="center">
+                <bind_flag_if_not_eq subject="muted_output" ref_value="0" flag="hidden" />
+            </lv_label>
+            <lv_label text="UNMUTE" x="0" y="0" style_text_font="font_16" style_text_color="#ink" align="center">
+                <bind_flag_if_not_eq subject="muted_output" ref_value="1" flag="hidden" />
+            </lv_label>
+        </amp_button>
+        <lv_obj style_bg_opa="0%" style_border_width="0" style_pad_all="0" style_radius="0" scrollable="false" name="open_master" x="366" y="534" width="76" height="54" clickable="true">
+            <subject_set_int_event subject="active_adjustment" value="100" trigger="short_clicked" />
+        </lv_obj>
+        <lv_obj style_bg_opa="0%" style_border_width="0" style_pad_all="0" style_radius="0" scrollable="false" name="open_master_readout" x="788" y="534" width="76" height="54" clickable="true">
+            <subject_set_int_event subject="active_adjustment" value="100" trigger="short_clicked" />
+        </lv_obj>
+        <amp_drawer name="amplifier_drawer" />
+        <preview_dialogs name="dialogs" />
+        <adjustment_popup name="adjustment_1" control_id="1" title="Threshold" subject="gate_p0" format="%d dB" minimum="-80" maximum="0" accent="#gate" />
+        <adjustment_popup name="adjustment_2" control_id="2" title="Release" subject="gate_p1" format="%d ms" minimum="10" maximum="500" accent="#gate" />
+        <adjustment_popup name="adjustment_3" control_id="3" title="Level" subject="comp_p0" format="%d%%" minimum="0" maximum="100" accent="#comp" />
+        <adjustment_popup name="adjustment_4" control_id="4" title="Attack" subject="comp_p1" format="%d ms" minimum="1" maximum="100" accent="#comp" />
+        <adjustment_popup name="adjustment_5" control_id="5" title="Sustain" subject="comp_p2" format="%d%%" minimum="0" maximum="100" accent="#comp" />
+        <adjustment_popup name="adjustment_6" control_id="6" title="Level" subject="drive_p0" format="%d%%" minimum="0" maximum="100" accent="#drive" />
+        <adjustment_popup name="adjustment_7" control_id="7" title="Gain" subject="drive_p1" format="%d%%" minimum="0" maximum="100" accent="#drive" />
+        <adjustment_popup name="adjustment_8" control_id="8" title="Tone" subject="drive_p2" format="%d%%" minimum="0" maximum="100" accent="#drive" />
+        <adjustment_popup name="adjustment_9" control_id="9" title="Gain" subject="amp_p0" format="%d%%" minimum="0" maximum="100" accent="#amp" />
+        <adjustment_popup name="adjustment_10" control_id="10" title="Bass" subject="amp_p1" format="%d%%" minimum="0" maximum="100" accent="#amp" />
+        <adjustment_popup name="adjustment_11" control_id="11" title="Middle" subject="amp_p2" format="%d%%" minimum="0" maximum="100" accent="#amp" />
+        <adjustment_popup name="adjustment_12" control_id="12" title="Treble" subject="amp_p3" format="%d%%" minimum="0" maximum="100" accent="#amp" />
+        <adjustment_popup name="adjustment_13" control_id="13" title="Level" subject="amp_p4" format="%d%%" minimum="0" maximum="100" accent="#amp" />
+        <adjustment_popup name="adjustment_14" control_id="14" title="Mix" subject="chorus_p0" format="%d%%" minimum="0" maximum="100" accent="#chorus" />
+        <adjustment_popup name="adjustment_15" control_id="15" title="Rate (0.1 Hz)" subject="chorus_p1" format="%d" minimum="1" maximum="100" accent="#chorus" />
+        <adjustment_popup name="adjustment_16" control_id="16" title="Depth" subject="chorus_p2" format="%d%%" minimum="0" maximum="100" accent="#chorus" />
+        <adjustment_popup name="adjustment_17" control_id="17" title="Mix" subject="delay_p0" format="%d%%" minimum="0" maximum="100" accent="#delay" />
+        <adjustment_popup name="adjustment_18" control_id="18" title="Time" subject="delay_p1" format="%d ms" minimum="20" maximum="1500" accent="#delay" />
+        <adjustment_popup name="adjustment_19" control_id="19" title="Feedback" subject="delay_p2" format="%d%%" minimum="0" maximum="95" accent="#delay" />
+        <adjustment_popup name="adjustment_20" control_id="20" title="Mix" subject="reverb_p0" format="%d%%" minimum="0" maximum="100" accent="#reverb" />
+        <adjustment_popup name="adjustment_21" control_id="21" title="Decay (0.1 s)" subject="reverb_p1" format="%d" minimum="1" maximum="100" accent="#reverb" />
+        <adjustment_popup name="adjustment_22" control_id="22" title="Damping" subject="reverb_p2" format="%d%%" minimum="0" maximum="100" accent="#reverb" />
+        <adjustment_popup name="adjustment_100" control_id="100" title="Master volume" subject="master" format="%d%%" minimum="0" maximum="100" accent="#amber" />
+        <adjustment_popup name="adjustment_101" control_id="101" title="AUX volume" subject="aux" format="%d%%" minimum="0" maximum="100" accent="#amber" />
+    </view>
+</screen>

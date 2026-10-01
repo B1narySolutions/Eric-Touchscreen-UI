@@ -1,0 +1,35 @@
+<component>
+    <view extends="lv_obj" width="420" height="308" scrollable="false" style_bg_color="0x181C1E" style_bg_opa="100%" style_pad_all="0" style_border_width="1" style_border_color="#edge" style_radius="16" style_shadow_width="0" style_shadow_opa="25%">
+        <lv_label text="AMPLIFIERS" x="16" y="16" style_text_font="font_14" style_text_color="#muted" />
+        <amp_button name="voice_0" text="" x="10" y="46" width="400" height="76" style_bg_color="0x202628" style_bg_color-checked="#selected_bg" style_border_color-checked="#amber">
+            <bind_state_if_eq subject="voice" ref_value="0" state="checked" />
+            <subject_set_int_event subject="voice" value="0" trigger="clicked" />
+            <subject_set_int_event subject="edited" value="1" trigger="clicked" />
+            <lv_label text="Fender" x="18" y="10" style_text_font="font_14" style_text_color="#muted" />
+            <lv_label text="'65 Twin Reverb" x="18" y="32" style_text_font="font_20" style_text_color="#ink" />
+            <lv_obj x="0" y="12" width="4" height="52" style_radius="2" style_bg_color="#amber" style_bg_opa="100%" style_border_width="0" style_pad_all="0" scrollable="false" clickable="false">
+                <bind_flag_if_not_eq subject="voice" ref_value="0" flag="hidden" />
+            </lv_obj>
+        </amp_button>
+        <amp_button name="voice_1" text="" x="10" y="130" width="400" height="76" style_bg_color="0x202628" style_bg_color-checked="#selected_bg" style_border_color-checked="#amber">
+            <bind_state_if_eq subject="voice" ref_value="1" state="checked" />
+            <subject_set_int_event subject="voice" value="1" trigger="clicked" />
+            <subject_set_int_event subject="edited" value="1" trigger="clicked" />
+            <lv_label text="Vox" x="18" y="10" style_text_font="font_14" style_text_color="#muted" />
+            <lv_label text="AC30" x="18" y="32" style_text_font="font_20" style_text_color="#ink" />
+            <lv_obj x="0" y="12" width="4" height="52" style_radius="2" style_bg_color="#amber" style_bg_opa="100%" style_border_width="0" style_pad_all="0" scrollable="false" clickable="false">
+                <bind_flag_if_not_eq subject="voice" ref_value="1" flag="hidden" />
+            </lv_obj>
+        </amp_button>
+        <amp_button name="voice_2" text="" x="10" y="214" width="400" height="76" style_bg_color="0x202628" style_bg_color-checked="#selected_bg" style_border_color-checked="#amber">
+            <bind_state_if_eq subject="voice" ref_value="2" state="checked" />
+            <subject_set_int_event subject="voice" value="2" trigger="clicked" />
+            <subject_set_int_event subject="edited" value="1" trigger="clicked" />
+            <lv_label text="Marshall" x="18" y="10" style_text_font="font_14" style_text_color="#muted" />
+            <lv_label text="JCM800" x="18" y="32" style_text_font="font_20" style_text_color="#ink" />
+            <lv_obj x="0" y="12" width="4" height="52" style_radius="2" style_bg_color="#amber" style_bg_opa="100%" style_border_width="0" style_pad_all="0" scrollable="false" clickable="false">
+                <bind_flag_if_not_eq subject="voice" ref_value="2" flag="hidden" />
+            </lv_obj>
+        </amp_button>
+    </view>
+</component>

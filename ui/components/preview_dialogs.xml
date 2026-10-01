@@ -1,0 +1,79 @@
+<component>
+    <view extends="lv_obj" width="1024" height="600" scrollable="false" clickable="false" style_bg_color="#background" style_bg_opa="80%" style_pad_all="0" style_border_width="0" style_radius="0">
+        <bind_flag_if_eq subject="dialog" ref_value="0" flag="hidden" />
+        <lv_obj name="dismiss_area" width="1024" height="600" scrollable="false" clickable="true" gesture_bubble="false" style_bg_opa="0%" style_border_width="0" style_pad_all="0" style_radius="0">
+            <subject_set_int_event subject="dialog" value="0" trigger="clicked" />
+        </lv_obj>
+        <lv_obj x="152" y="74" width="720" height="452" scrollable="false" clickable="true" gesture_bubble="false">
+            <style name="surface" />
+            <amp_button text="X" x="632" y="20" width="60" height="52">
+                <subject_set_int_event subject="dialog" value="0" trigger="clicked" />
+            </amp_button>
+            <lv_label text="Your tones" x="28" y="26" style_text_font="font_28" style_text_color="#ink">
+                <bind_flag_if_not_eq subject="dialog" ref_value="1" flag="hidden" />
+            </lv_label>
+            <lv_label text="Choose a preset label for your preview." x="28" y="66" style_text_font="font_16" style_text_color="#muted">
+                <bind_flag_if_not_eq subject="dialog" ref_value="1" flag="hidden" />
+            </lv_label>
+            <lv_obj x="0" y="108" width="720" height="336" scrollable="false" style_bg_opa="0%" style_border_width="0" style_pad_all="0" style_radius="0" style_shadow_width="0">
+                <bind_flag_if_not_eq subject="dialog" ref_value="1" flag="hidden" />
+                <amp_button text="Preset 1" x="28" y="6" width="664" height="72" style_bg_color-checked="#selected_bg">
+                    <bind_state_if_eq subject="preset_number" ref_value="1" state="checked" />
+                    <subject_set_int_event subject="preset_number" value="1" trigger="clicked" />
+                    <subject_set_int_event subject="dialog" value="0" trigger="clicked" />
+                </amp_button>
+                <amp_button text="Preset 2" x="28" y="92" width="664" height="72" style_bg_color-checked="#selected_bg">
+                    <bind_state_if_eq subject="preset_number" ref_value="2" state="checked" />
+                    <subject_set_int_event subject="preset_number" value="2" trigger="clicked" />
+                    <subject_set_int_event subject="dialog" value="0" trigger="clicked" />
+                </amp_button>
+                <amp_button text="Preset 3" x="28" y="178" width="664" height="72" style_bg_color-checked="#selected_bg">
+                    <bind_state_if_eq subject="preset_number" ref_value="3" state="checked" />
+                    <subject_set_int_event subject="preset_number" value="3" trigger="clicked" />
+                    <subject_set_int_event subject="dialog" value="0" trigger="clicked" />
+                </amp_button>
+                <lv_label text="Preview labels only; preset save/recall remains in the C simulator." x="28" y="292" style_text_font="font_14" style_text_color="#muted" />
+            </lv_obj>
+            <lv_label text="Output &amp; device" x="28" y="26" style_text_font="font_28" style_text_color="#ink">
+                <bind_flag_if_not_eq subject="dialog" ref_value="2" flag="hidden" />
+            </lv_label>
+            <lv_label text="SIMULATION / No audio hardware connected" x="28" y="66" style_text_font="font_16" style_text_color="#muted">
+                <bind_flag_if_not_eq subject="dialog" ref_value="2" flag="hidden" />
+            </lv_label>
+            <lv_obj x="0" y="108" width="720" height="336" scrollable="false" style_bg_opa="0%" style_border_width="0" style_pad_all="0" style_radius="0" style_shadow_width="0">
+                <bind_flag_if_not_eq subject="dialog" ref_value="2" flag="hidden" />
+                <lv_label text="Output routing" x="28" y="16" style_text_font="font_16" style_text_color="#muted" />
+                <amp_button text="" x="28" y="44" width="664" height="60">
+                    <subject_toggle_event subject="headphones" trigger="clicked" />
+                    <lv_label text="Speaker output" x="0" y="0" style_text_font="font_16" style_text_color="#ink" align="center">
+                        <bind_flag_if_not_eq subject="headphones" ref_value="0" flag="hidden" />
+                    </lv_label>
+                    <lv_label text="Headphones / speaker off" x="0" y="0" style_text_font="font_16" style_text_color="#ink" align="center">
+                        <bind_flag_if_not_eq subject="headphones" ref_value="1" flag="hidden" />
+                    </lv_label>
+                </amp_button>
+                <lv_label x="28" y="130" bind_text="aux" bind_text-fmt="AUX mix   %d%%" style_text_font="font_16" style_text_color="#ink" />
+                <lv_slider x="44" y="181" width="630" height="12" min_value="0" max_value="100" bind_value="aux" ext_click_area="22" style_bg_color="#edge" style_bg_color-indicator="#amber" style_bg_color-knob="#ink">
+                    <subject_set_int_event subject="edited" value="1" trigger="value_changed" />
+                </lv_slider>
+                <lv_label text="Battery telemetry: not connected&#10;USB audio and footswitch: future integration" x="28" y="249" style_text_font="font_16" style_text_color="#muted" />
+                <lv_obj style_bg_opa="0%" style_border_width="0" style_pad_all="0" style_radius="0" scrollable="false" name="open_aux" x="22" y="122" width="252" height="34" clickable="true">
+                    <subject_set_int_event subject="active_adjustment" value="101" trigger="short_clicked" />
+                </lv_obj>
+            </lv_obj>
+            <lv_label text="Preview only" x="28" y="26" style_text_font="font_28" style_text_color="#ink">
+                <bind_flag_if_not_eq subject="dialog" ref_value="3" flag="hidden" />
+            </lv_label>
+            <lv_label text="Layout edits are saved by the LVGL Pro editor." x="28" y="66" style_text_font="font_16" style_text_color="#muted">
+                <bind_flag_if_not_eq subject="dialog" ref_value="3" flag="hidden" />
+            </lv_label>
+            <lv_obj x="0" y="108" width="720" height="336" scrollable="false" style_bg_opa="0%" style_border_width="0" style_pad_all="0" style_radius="0" style_shadow_width="0">
+                <bind_flag_if_not_eq subject="dialog" ref_value="3" flag="hidden" />
+                <lv_label text="Dials and switches work in this preview.&#10;Saving audio presets is handled by the&#10;original C simulator, not this layout preview." x="28" y="34" style_text_font="font_24" style_text_color="#ink" width="664" />
+                <amp_button text="Back to editor preview" x="28" y="222" width="664" height="64">
+                    <subject_set_int_event subject="dialog" value="0" trigger="clicked" />
+                </amp_button>
+            </lv_obj>
+        </lv_obj>
+    </view>
+</component>

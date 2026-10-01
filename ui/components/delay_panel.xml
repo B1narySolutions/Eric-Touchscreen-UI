@@ -1,0 +1,16 @@
+﻿<component>
+    <view extends="lv_obj" width="992" height="280" scrollable="false">
+        <style name="surface" />
+        <parameter_dial name="delay_dial_0" x="20" y="48" width="310" title="Mix" subject="delay_p0" format="%d%%" minimum="0" maximum="100" step="1" negative_step="-1" accent="#delay" control_id="17" />
+        <parameter_dial name="delay_dial_1" x="342" y="48" width="310" title="Time" subject="delay_p1" format="%d ms" minimum="20" maximum="1500" step="10" negative_step="-10" accent="#delay" control_id="18" />
+        <parameter_dial name="delay_dial_2" x="664" y="48" width="310" title="Feedback" subject="delay_p2" format="%d%%" minimum="0" maximum="95" step="1" negative_step="-1" accent="#delay" control_id="19" />
+        <lv_label text="DELAY" x="20" y="16" style_text_font="font_14" style_text_color="#delay" />
+        <lv_label text="ACTIVE" align="top_right" x="-20" y="16" style_text_font="font_14" style_text_color="#muted">
+            <bind_flag_if_not_eq subject="delay_enabled" ref_value="1" flag="hidden" />
+        </lv_label>
+        <lv_label text="BYPASSED" align="top_right" x="-20" y="16" style_text_font="font_14" style_text_color="#muted">
+            <bind_flag_if_not_eq subject="delay_enabled" ref_value="0" flag="hidden" />
+        </lv_label>
+    </view>
+</component>
+

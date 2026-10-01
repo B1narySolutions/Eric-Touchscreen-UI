@@ -1,0 +1,39 @@
+<component>
+    <animations>
+        <timeline name="slide">
+            <animation target="drawer" prop="translate_y" start="-400" end="0" duration="120" />
+        </timeline>
+    </animations>
+    <view style_bg_opa="0%" style_border_width="0" style_pad_all="0" style_radius="0" scrollable="false" extends="lv_obj" width="1024" height="600" clickable="false">
+        <amp_button name="model_trigger" text="" x="204" y="16" width="432" height="64" style_bg_color="0x202628" style_border_color="#edge">
+            <lv_label text="AMP MODEL" x="16" y="7" style_text_font="font_14" style_text_color="#muted" />
+            <lv_label text="Fender '65 Twin Reverb" x="16" y="30" style_text_font="font_20" style_text_color="#amber">
+                <bind_flag_if_not_eq subject="voice" ref_value="0" flag="hidden" />
+            </lv_label>
+            <lv_label text="Vox AC30" x="16" y="30" style_text_font="font_20" style_text_color="#amber">
+                <bind_flag_if_not_eq subject="voice" ref_value="1" flag="hidden" />
+            </lv_label>
+            <lv_label text="Marshall JCM800" x="16" y="30" style_text_font="font_20" style_text_color="#amber">
+                <bind_flag_if_not_eq subject="voice" ref_value="2" flag="hidden" />
+            </lv_label>
+            <lv_label text="v" align="right_mid" x="-18" style_text_font="font_24" style_text_color="#amber" />
+            <subject_set_int_event subject="sidebar_open" value="1" trigger="clicked" />
+            <play_timeline_event trigger="clicked" target="self" timeline="slide" />
+        </amp_button>
+        <lv_obj style_bg_opa="24%" style_border_width="0" style_pad_all="0" style_radius="0" scrollable="false" name="dismiss_area" width="1024" height="600" clickable="true" gesture_bubble="false" style_bg_color="#background">
+            <bind_flag_if_not_eq subject="sidebar_open" ref_value="1" flag="hidden" />
+            <subject_set_int_event subject="sidebar_open" value="0" trigger="clicked" />
+            <play_timeline_event trigger="clicked" target="self" timeline="slide" reverse="true" />
+            <subject_set_int_event subject="sidebar_open" value="0" trigger="gesture" />
+            <play_timeline_event trigger="gesture" target="self" timeline="slide" reverse="true" />
+        </lv_obj>
+        <amplifier_selector name="drawer" x="210" y="88" style_translate_y="-400" gesture_bubble="false">
+            <subject_set_int_event subject="sidebar_open" value="0" trigger="gesture" />
+            <play_timeline_event trigger="gesture" target="self" timeline="slide" reverse="true" />
+            <amp_button text="X" x="364" y="2" width="44" height="42" style_bg_opa="0%" style_border_width="0">
+                <subject_set_int_event subject="sidebar_open" value="0" trigger="clicked" />
+                <play_timeline_event trigger="clicked" target="self" timeline="slide" reverse="true" />
+            </amp_button>
+        </amplifier_selector>
+    </view>
+</component>

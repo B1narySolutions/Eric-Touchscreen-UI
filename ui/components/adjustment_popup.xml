@@ -1,0 +1,28 @@
+<component>
+    <api>
+        <prop name="control_id" type="int" default="1" />
+        <prop name="title" type="string" default="Gain" />
+        <prop name="subject" type="subject" default="amp_p0" />
+        <prop name="format" type="string" default="%d%%" />
+        <prop name="minimum" type="int" default="0" />
+        <prop name="maximum" type="int" default="100" />
+        <prop name="accent" type="color" default="#amber" />
+    </api>
+    <view style_bg_opa="0%" style_border_width="0" style_pad_all="0" style_radius="0" scrollable="false" extends="lv_obj" width="1024" height="600" clickable="false">
+        <bind_flag_if_not_eq subject="active_adjustment" ref_value="$control_id" flag="hidden" />
+        <lv_obj style_bg_opa="0%" style_border_width="0" style_pad_all="0" style_radius="0" scrollable="false" width="1024" height="600" clickable="true" gesture_bubble="false" style_bg_color="#background">
+            <subject_set_int_event subject="active_adjustment" value="0" trigger="clicked" />
+        </lv_obj>
+        <lv_obj name="value_panel" x="704" y="84" width="304" height="448" scrollable="false" clickable="true" gesture_bubble="false" style_bg_color="0x20292F" style_bg_opa="88%" style_border_width="1" style_border_color="#edge" style_pad_all="0" style_radius="24" style_shadow_width="0" style_shadow_opa="20%">
+            <lv_label text="$title" x="24" y="22" width="218" style_text_font="font_20" style_text_color="$accent" />
+            <amp_button text="X" x="244" y="12" width="48" height="48" style_bg_opa="0%" style_border_width="0">
+                <subject_set_int_event subject="active_adjustment" value="0" trigger="clicked" />
+            </amp_button>
+            <lv_label name="value_readout" align="top_mid" y="70" width="256" height="64" style_text_align="center" style_bg_color="0x20292F" style_bg_opa="100%" bind_text="$subject" bind_text-fmt="$format" style_text_font="font_48" style_text_color="#ink" />
+            <lv_slider name="swipe_control" x="116" y="152" width="72" height="222" min_value="$minimum" max_value="$maximum" bind_value="$subject" orientation="vertical" ext_click_area="78" gesture_bubble="false" style_radius="18" style_bg_color="#edge" style_bg_opa="100%" style_bg_color-indicator="$accent" style_bg_opa-indicator="100%" style_radius-indicator="18" style_bg_color-knob="#ink" style_bg_opa-knob="100%" style_pad_top-knob="-31" style_pad_bottom-knob="-31" style_pad_left-knob="6" style_pad_right-knob="6" style_radius-knob="5">
+                <subject_set_int_event subject="edited" value="1" trigger="value_changed" />
+            </lv_slider>
+            <lv_label text="Swipe up to raise&#10;Swipe down to lower" align="bottom_mid" y="-20" style_text_align="center" style_text_font="font_14" style_text_color="#muted" />
+        </lv_obj>
+    </view>
+</component>
